@@ -36,7 +36,9 @@ app.use('/login', loginRouter);
 app.use('/user',usersRouter);
 app.use('/logout',logoutRouter);
 
-
+app.get('*', (req, res, next)=>{
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+})
 
 app.use(function(req, res, next) {
   next(createError(404));
